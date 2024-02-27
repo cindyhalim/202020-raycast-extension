@@ -3,7 +3,7 @@ import { exec } from 'child_process'
 import { cache } from './cache'
 import type { AudioSettings } from './types'
 
-const CACHE_KEY = '202020_isMuted'
+const CACHE_KEY = '202020_audioSettings'
 
 function play(audioFileName: string) {
   exec(`afplay ${environment.assetsPath}/${audioFileName} --volume 0.3`)
@@ -13,7 +13,8 @@ function isMuted() {
   const result = cache.get(CACHE_KEY)
 
   if (!result) {
-    console.warn('No audio settings found')
+    const defaultValue = { isMuted: false }
+    cache.set(CACHE_KEY, JSON.stringify(defaultValue))
     return false
   }
 
