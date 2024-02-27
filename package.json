@@ -12,6 +12,12 @@
   "license": "MIT",
   "commands": [
     {
+      "name": "start-session",
+      "title": "NewSession",
+      "description": "Start new 20-20-20 session",
+      "mode": "no-view"
+    },
+    {
       "name": "menu-bar",
       "title": "MenuBar",
       "description": "View and modify existing sessions",
